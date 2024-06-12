@@ -1,15 +1,19 @@
-name: "Render Deploy Action - fork"
-description: "Trigger a Render service deploy"
+name: "Render deploy service"
+
+description: "Trigger a deploy of a Render service."
+
 inputs:
-  service-id:
-    description: "ID of the service to deploy"
+  serviceId:
+    description: >-
+      The ID of the service.
+      See https://api-docs.render.com/reference/create-deploy.
     required: true
-  api-key:
-    description: "A Render API key"
+  apiKey:
+    description: >-
+      Authenticate all requests to the Render API with an API key. 
+      See https://api-docs.render.com/reference/authentication.
     required: true
-  wait-for-success:
-    description: "Should job wait for deployment to succeed"
-    required: false 
+
 runs:
-  using: "node16"
+  using: "node20"
   main: "dist/index.js"

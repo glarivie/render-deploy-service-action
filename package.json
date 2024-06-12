@@ -1,5 +1,5 @@
 {
-	"name": "@glarivie/render-deploy-action",
+	"name": "@glarivie/render-deploy-service-action",
 	"version": "1.0.1",
 	"description": "Trigger a deploy of a Render service.",
 	"main": "index.js",
