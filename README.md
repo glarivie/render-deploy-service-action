@@ -14,7 +14,7 @@ Trigger a deploy of a Render service.
 Use GitHub Action secrets to set the values of `serviceId` and `apiKey` and then add to your workflow with:
 
 ```yml
-- uses: glarivie/render-deploy-service-action@v1.0.2
+- uses: glarivie/render-deploy-service-action@v1.0.3
   with:
     serviceId: ${{ secrets.MY_RENDER_SERVICE_ID }}
     apiKey: ${{ secrets.MY_RENDER_API_KEY }}
