@@ -18,5 +18,12 @@ inputs:
     required: true
 
 runs:
-  using: "node20"
-  main: "dist/index.js"
+  using: composite
+
+  steps:
+    - shell: bash
+      run: |
+        curl \
+          --request POST \
+          --url https://api.render.com/v1/services/${{ inputs.serviceId }}/deploys \
+          --header 'Authorization: Bearer ${{ inputs.apiKey }}'
