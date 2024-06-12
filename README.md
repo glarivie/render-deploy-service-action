@@ -1,43 +1,35 @@
-# Render Deploy action
+# Render deploy service action
 
-This action triggers a Render deploy.
+Trigger a deploy of a Render service.
 
 ## Inputs
 
-## `service-id`
-
-**Required** The serviceID of the Render service to trigger the deploy on. When viewing a service in the Render dashboard grab this value from the URL - it will start with `srv-`
-
-## `api-key`
-
-**Required** Render API key
-
-## `wait-for-success`
-
-**Optional** When true job will pend untill the deployment get to the status `live`
-
+| Inputs    | Required | Description                                                 | Links                                                |
+| --------- | -------- | ----------------------------------------------------------- | ---------------------------------------------------- |
+| serviceId | \*       | The ID of the service                                       | https://api-docs.render.com/reference/create-deploy  |
+| apiKey    | \*       | Authenticate all requests to the Render API with an API key | https://api-docs.render.com/reference/authentication |
 
 ## Example usage
 
-Use GitHub Action secrets to set the values of `service-id` and `api-key` and then add to your workflow with:
+Use GitHub Action secrets to set the values of `serviceId` and apiKey` and then add to your workflow with:
 
-```
-name: My Deploy
+```yml
+name: Deploy my service
 
 on:
-  push:
-    branches: [ master ]
+  workflow_dispatch:
   pull_request:
-    branches: [ master ]
+    branches:
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    steps:
+
+		steps:
       - name: Deploy to production
-        uses: johnbeynon/render-deploy-action@v0.0.8
+        uses: glarivie/render-deploy-service-action@v1.0.2
         with:
-          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
-          api-key: ${{ secrets.MY_RENDER_API_KEY }}
-          wait-for-success: true
+          serviceId: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          apiKey: ${{ secrets.MY_RENDER_API_KEY }}
 ```
