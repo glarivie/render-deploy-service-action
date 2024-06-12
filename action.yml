@@ -1,6 +1,9 @@
 name: "Render deploy service"
 
 description: "Trigger a deploy of a Render service."
+branding:
+  icon: "package"
+  color: "gray-dark"
 
 inputs:
   serviceId:
