@@ -1,16 +1,22 @@
 {
 	"name": "@glarivie/render-deploy-service-action",
-	"version": "1.0.3",
+	"version": "1.0.2",
 	"description": "Trigger a deploy of a Render service.",
 	"author": "glarivie",
 	"license": "MIT",
-	"main": "src/index.cjs",
+	"main": "dist/index.js",
+	"files": [
+		"package.json",
+		"dist"
+	],
 	"scripts": {
 		"build": "tsup"
 	},
 	"devDependencies": {
 		"@actions/core": "^1.10.1",
 		"@actions/github": "^6.0.0",
-		"axios": "^1.7.2"
+		"axios": "^1.7.2",
+		"tsup": "^8.1.0",
+		"typescript": "^5.4.5"
 	}
 }
